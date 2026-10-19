@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人名片 · 软件开发实践</title>
+    <style>
+        /* 第 1 周 B 级任务：自己写的样式（第 2 周学了模板继承后可以改成 extends base.html） */
+        body { font-family: "Microsoft YaHei", sans-serif; background: #f4f6fb;
+               display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        .profile-card { background: #fff; border-radius: 16px; padding: 40px 48px;
+                        box-shadow: 0 10px 34px rgba(23,38,84,.12); max-width: 420px; width: 100%; }
+        .profile-avatar { font-size: 56px; text-align: center; }
+        .profile-card h1 { font-size: 22px; text-align: center; margin: 8px 0 22px; color: #2f5bea; }
+        .profile-row { display: flex; padding: 10px 0; border-bottom: 1px solid #eef1f7; font-size: 15px; }
+        .profile-row span:first-child { width: 84px; color: #7a8296; }
+        .profile-back { display: block; margin-top: 24px; text-align: center; padding: 10px;
+                        background: #2f5bea; color: #fff; border-radius: 8px; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-avatar">🧑‍💻</div>
+        <h1>开发者名片</h1>
+        <div class="profile-row"><span>姓名</span><span>张三</span></div>
+        <div class="profile-row"><span>学号</span><span>2024001001</span></div>
+        <div class="profile-row"><span>班级</span><span>计科 24-1 班</span></div>
+        <div class="profile-row"><span>课程</span><span>软件开发实践</span></div>
+        <div class="profile-row"><span>目标</span><span>九周做出一个自己能讲清楚的系统</span></div>
+        <a class="profile-back" href="/">返回首页</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}注册 · 校园二手书交易平台{% endblock %}
+
+{% block content %}
+<section class="form-card">
+    <h2>注册新账号</h2>
+    <form id="registerForm" class="form">
+        <label>
+            <span>用户名</span>
+            <input type="text" name="username" placeholder="4-20 位字母或数字" required>
+        </label>
+        <label>
+            <span>密码</span>
+            <input type="password" name="password" placeholder="至少 6 位" required>
+        </label>
+        <label>
+            <span>联系方式</span>
+            <input type="text" name="contact" placeholder="QQ / 微信 / 手机号">
+        </label>
+        <button type="submit" class="btn">注册</button>
+        <p class="form-tip">已有账号？<a href="/login">去登录</a></p>
+    </form>
+    <p id="msg" class="msg"></p>
+</section>
+{% endblock %}

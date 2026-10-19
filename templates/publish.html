@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}发布图书 · 校园二手书交易平台{% endblock %}
+
+{% block content %}
+<section class="form-card wide">
+    <h2>发布一本二手书</h2>
+    <form id="publishForm" class="form">
+        <label>
+            <span>书名</span>
+            <input type="text" name="title" placeholder="例如：数据结构（C语言版）" required>
+        </label>
+        <label>
+            <span>作者</span>
+            <input type="text" name="author" placeholder="例如：严蔚敏">
+        </label>
+        <label>
+            <span>分类</span>
+            <select name="category">
+                <option value="计算机">计算机</option>
+                <option value="数学">数学</option>
+                <option value="外语">外语</option>
+                <option value="专业课">专业课</option>
+                <option value="其他">其他</option>
+            </select>
+        </label>
+        <label>
+            <span>成色</span>
+            <select name="condition">
+                <option value="全新">全新</option>
+                <option value="九成新">九成新</option>
+                <option value="八成新">八成新</option>
+                <option value="七成新">七成新</option>
+            </select>
+        </label>
+        <label>
+            <span>价格（元）</span>
+            <input type="number" name="price" step="0.5" min="0" placeholder="例如：15" required>
+        </label>
+        <button type="submit" class="btn">发布</button>
+    </form>
+    <p id="msg" class="msg"></p>
+</section>
+{% endblock %}

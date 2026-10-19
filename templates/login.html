@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}登录 · 校园二手书交易平台{% endblock %}
+
+{% block content %}
+<section class="form-card">
+    <h2>用户登录</h2>
+    <form id="loginForm" class="form">
+        <label>
+            <span>学号 / 用户名</span>
+            <input type="text" name="username" placeholder="请输入用户名" required>
+        </label>
+        <label>
+            <span>密码</span>
+            <input type="password" name="password" placeholder="请输入密码" required>
+        </label>
+        <button type="submit" class="btn">登录</button>
+        <p class="form-tip">还没有账号？<a href="/register">立即注册</a></p>
+    </form>
+    <p id="msg" class="msg"></p>
+</section>
+{% endblock %}

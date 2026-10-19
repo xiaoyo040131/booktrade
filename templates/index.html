@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}首页 · 校园二手书交易平台{% endblock %}
+{% block content %}
+<section class="page-head">
+    <h1>在售图书</h1>
+    <p class="muted">当前共 {{ total }} 本二手书在售</p>
+</section>
+
+<!-- 图书卡片网格：用 for 循环把每一本书渲染成一张卡片 -->
+<section class="book-grid">
+    {% for book in books %}
+    <article class="book-card">
+        <div class="book-cover">{{ book.cover }}</div>
+        <h3 class="book-title">{{ book.title }}</h3>
+        <p class="book-meta">{{ book.author }} · {{ book.category }}</p>
+        <p class="book-meta">成色：{{ book.condition }}｜卖家：{{ book.seller }}</p>
+        <div class="book-bottom">
+            <span class="price">￥{{ "%.2f"|format(book.price) }}</span>
+            <a class="btn-sm" href="/book/{{ book.id }}">查看详情</a>
+        </div>
+    </article>
+    {% else %}
+    <p class="empty">暂时还没有图书，快去发布第一本吧！</p>
+    {% endfor %}
+</section>
+{% endblock %}

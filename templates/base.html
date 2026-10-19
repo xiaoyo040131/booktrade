@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}校园二手书交易平台{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {# 主题脚本放在 head 里先执行，避免页面先白一下再变深色 #}
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+    <!-- 顶部导航：所有页面共用，只写一次 -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="/">📚 校园二手书</a>
+            <nav class="nav-links">
+                <a href="/">首页</a>
+                <a href="/publish">发布图书</a>
+                <a href="/login">登录</a>
+                <a href="/register">注册</a>
+                {# 扩展点：存在 templates/extra/nav.html 时自动引入你自己的导航项（B 级任务） #}
+                {% include "extra/nav.html" ignore missing %}
+                <button id="themeToggle" class="theme-toggle" type="button" title="切换深色模式">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        贵州黔南科技学院 · 计科0252 ·《软件开发实践》课程项目 &copy; 2026
+    </footer>
+
+    {% block script %}{% endblock %}
+    {# 扩展点：存在 templates/extra/scripts.html 时自动引入你自己的脚本（B 级任务） #}
+    {% include "extra/scripts.html" ignore missing %}
+</body>
+</html>

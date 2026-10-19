@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}我的订单 · 校园二手书交易平台{% endblock %}
+
+{% block content %}
+{# 假数据：三条订单，状态各不相同。第 7 周会换成数据库里的真实订单。
+   ⚠️ 这一段必须写在最前面 —— 后面所有用到 demo 的地方，都得排在它后面。 #}
+{% set demo = [
+    {"no": "NO20260901001", "title": "【JAVA语言程序设计】", "price": 18.0, "status": "pending",   "time": "2026-09-01 10:12"},
+    {"no": "NO20260902002", "title": "【Python语言程序设计】", "price": 12.5, "status": "done",      "time": "2026-09-02 15:40"},
+    {"no": "NO20260903003", "title": "【Mysql】", "price": 9.9,  "status": "cancelled", "time": "2026-09-03 09:05"}
+] %}
+
+<section class="page-head">
+    <h1>我的订单</h1>
+    <p class="muted">第 2 周先做静态原型，第 7 周会接上真实数据</p>
+</section>
+
+<table class="table" id="orderTable">
+    <thead>
+        <tr><th>订单号</th><th>图书</th><th>成交价</th><th>状态</th><th>下单时间</th></tr>
+    </thead>
+    <tbody>
+        {% for o in demo %}
+        <tr data-status="{{ o.status }}" data-price="{{ o.price }}">
+            <td>{{ o.no }}</td>
+            <td>{{ o.title }}</td>
+            <td>￥{{ "%.2f"|format(o.price) }}</td>
+            <td>
+                {% if o.status == 'pending' %}
+                    <span class="tag tag-pending">待交易</span>
+                {% elif o.status == 'done' %}
+                    <span class="tag tag-done">已完成</span>
+                {% else %}
+                    <span class="tag tag-cancel">已取消</span>
+                {% endif %}
+            </td>
+            <td>{{ o.time }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
